@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const produtos = [
+ {nome:'Torra Clara', perfil:'Notas delicadas e acidez vibrante. Uma pausa leve para dias longos.',img:'/images/torra-clara.jpg',num:'01'},
+ {nome:'Torra Média', perfil:'Equilíbrio, doçura e versatilidade. Sua escolha para a rotina.',img:'/images/torra-media.jpg',num:'02'},
+ {nome:'Torra Intensa', perfil:'Corpo presente e final prolongado para quem gosta de intensidade.',img:'/images/torra-intensa.jpg',num:'03'},
+];
+---
+<BaseLayout page="torras">
+ <section class="container roast-intro"><p class="eyebrow">COLEÇÃO NORD • CAFÉS ESPECIAIS</p>
+  <div class="roast-intro-title">Nossas torras, seus momentos.</div>
+  <p>Do café suave ao intenso: descubra qual perfil acompanha melhor sua rotina.</p>
+ </section>
+ <section class="container roast-grid">
+ {produtos.map((produto)=><article class="roast-product">
+  <img src={produto.img} loading="eager" />
+  <div class="roast-product-body"><span class="eyebrow">PERFIL {produto.num}</span><h2>{produto.nome}</h2><p>{produto.perfil}</p><a href="/#contato">Ver como escolher</a></div>
+ </article>)}
+ </section>
+</BaseLayout>
